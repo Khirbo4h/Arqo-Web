@@ -1,1 +1,167 @@
-Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2026-02-28 04:29:57
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6366f1">
+    <title>Arqo</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1E1E;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        #search-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        #search-input {
+            width: 0;
+            opacity: 0;
+            transition: all 0.4s ease-in-out;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            color: black;
+            font-size: 0.875rem;
+            background-color: white;
+            position: absolute;
+            right: 0;
+        }
+
+        #search-button {
+            transition: transform 0.4s ease-in-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-active #search-button {
+            transform: translateX(-210px);
+        }
+
+        .search-active #search-input {
+            width: 200px;
+            opacity: 1;
+            padding: 4px 12px;
+            right: 0;
+        }
+    </style>
+</head>
+<body class="opacity-0 animate-fade-in text-[#1E1E1E] min-h-screen">
+
+    <header class="border-b border-gray-700 bg-[#1E1E1E]">
+        <div class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-4 flex justify-between items-center text-white">
+            <a href="/" class="flex flex-col items-start group transition-transform hover:scale-105">
+                <svg class="w-10 h-10 text-white group-hover:text-[#D4AF37] transition-colors" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 32V8l12 16 12-16v24M8 8h24" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-xl font-black tracking-tighter mt-0.5">ARQO</span>
+            </a>
+
+            <div class="flex items-center gap-4">
+                <div id="search-wrapper">
+                    <button type="button" id="search-button" class="p-2 text-white/70 hover:text-white" aria-label="Buscar">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </button>
+                    <input type="text" id="search-input" placeholder="Buscar manga, autor...">
+                </div>
+
+                <button type="button" class="p-2 text-[#D4AF37] hover:scale-110 transition-transform" aria-label="Suscripción">
+                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C12 22 16 18 16 14C16 10 12 2 12 2C12 2 8 10 8 14C8 18 12 22Z" fill="#D4AF37" fill-opacity="0.2" stroke="#D4AF37" stroke-width="1.5"/>
+                        <path d="M12 2V13" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="12" cy="14" r="1.5" fill="#D4AF37"/>
+                    </svg>
+                </button>
+
+                <a href="#" class="hidden sm:block px-4 py-2 rounded border border-gray-500 bg-white text-[#1E1E1E] font-semibold text-sm hover:bg-gray-200 transition-all">Iniciar sesión</a>
+                <a href="#" class="px-4 py-2 rounded bg-[#D4AF37] text-white font-bold text-sm hover:bg-[#B8860B] transition-all shadow-lg shadow-[#D4AF37]/20">Regístrate</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-8 space-y-6">
+        <section class="rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-4 flex items-center justify-center">
+            <span class="text-[#1E1E1E] font-bold text-xs uppercase tracking-widest opacity-50">Espacio Publicitario</span>
+        </section>
+
+        <a href="concurso.html" class="group relative overflow-hidden rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-28 md:py-40 flex flex-col items-center justify-center gap-6 min-h-[280px] md:min-h-[380px] hover:scale-[1.02] hover:shadow-[0_20px_50_rgba(0,0,0,0.3)] hover:border-[#D4AF37] transition-all duration-500 cursor-pointer">
+            <h1 class="text-3xl md:text-6xl font-black text-[#1E1E1E] text-center px-4 group-hover:scale-105 transition-transform duration-500">
+                Premio Arqo: <span class="group-hover:text-[#D4AF37] transition-colors">Narrativa Gráfica</span>
+            </h1>
+        </a>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="concurso.html" class="group rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex items-center justify-center hover:scale-105 hover:border-[#D4AF37] hover:shadow-[0_10px_30px_rgba(212,175,55,0.2)] transition-all duration-300">
+                <span class="text-[#1E1E1E] font-bold text-center group-hover:text-[#D4AF37] transition-colors tracking-tight">Bases y requisitos</span>
+            </a>
+            <a href="concurso.html" class="group rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex items-center justify-center hover:scale-105 hover:border-[#D4AF37] hover:shadow-[0_10px_30px_rgba(212,175,55,0.2)] transition-all duration-300">
+                <span class="text-[#1E1E1E] font-bold text-center group-hover:text-[#D4AF37] transition-colors tracking-tight">Premios</span>
+            </a>
+            <a href="#" class="group rounded-lg bg-gradient-to-br from-[#D4AF37] to-[#B8860B] border border-[#D4AF37] py-12 flex items-center justify-center hover:scale-105 hover:shadow-[0_10px_40px_rgba(212,175,55,0.4)] transition-all duration-300">
+                <span class="text-white font-black text-center uppercase tracking-widest drop-shadow-md">Arqo Gold</span>
+            </a>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex flex-col items-center justify-center gap-3 grayscale hover:grayscale-0 transition-all">
+                <svg class="w-12 h-12 text-[#1E1E1E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="text-[#1E1E1E] font-black text-xs uppercase tracking-tighter">Fase 1: Creación</span>
+            </div>
+            <div class="rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex flex-col items-center justify-center gap-3 grayscale hover:grayscale-0 transition-all">
+                <svg class="w-12 h-12 text-[#1E1E1E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                <span class="text-[#1E1E1E] font-black text-xs uppercase tracking-tighter">Fase 2: Registro</span>
+            </div>
+            <div class="rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex flex-col items-center justify-center gap-3 grayscale hover:grayscale-0 transition-all">
+                <svg class="w-12 h-12 text-[#1E1E1E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                <span class="text-[#1E1E1E] font-black text-xs uppercase tracking-tighter text-[#D4AF37]">Fase 3: Éxito</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-700 mt-12 bg-black text-white px-6 py-10">
+        <div class="max-w-6xl mx-auto text-center space-y-6">
+            <p class="text-gray-500 text-[10px] font-black tracking-[0.4em] uppercase">Una empresa de Multimedios</p>
+            <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-gray-500 text-xs font-semibold">
+                <a href="#" class="hover:text-white transition-colors">Contacto</a>
+                <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-white transition-colors">Condiciones</a>
+                <a href="#" class="hover:text-white transition-colors">Anúnciate</a>
+            </nav>
+            <p class="text-gray-600 text-xs font-bold uppercase tracking-widest">Derechos reservados © ARQO 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const searchButton = document.getElementById('search-button');
+        const searchWrapper = document.getElementById('search-wrapper');
+        const searchInput = document.getElementById('search-input');
+
+        searchButton.addEventListener('click', () => {
+            searchWrapper.classList.toggle('search-active');
+            if (searchWrapper.classList.contains('search-active')) {
+                searchInput.focus();
+            }
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!searchWrapper.contains(e.target) && searchWrapper.classList.contains('search-active')) {
+                searchWrapper.classList.remove('search-active');
+            }
+        });
+    </script>
+</body>
+</html>
