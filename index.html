@@ -1,149 +1,82 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#6366f1">
     <title>Arqo</title>
-    <link rel="manifest" href="manifest.json">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #1E1E1E;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
-        /* LÓGICA DEL BUSCADOR: LA LUPA SE MUEVE A LA IZQUIERDA */
-        #search-wrapper {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
+        body { font-family: 'Montserrat', sans-serif; background-color: #1E1E1E; padding-bottom: 70px; }
+        #search-wrapper { display: flex; align-items: center; position: relative; }
         #search-input {
-            width: 0;
-            opacity: 0;
-            transition: all 0.4s ease-in-out;
-            border-radius: 4px;
-            border: none;
-            outline: none;
-            color: black;
-            font-size: 0.875rem;
-            background-color: white;
-            position: absolute;
-            right: 0;
+            width: 0; opacity: 0; transition: all 0.4s ease-in-out;
+            border-radius: 4px; border: none; outline: none;
+            color: black; font-size: 0.875rem; background-color: white;
+            position: absolute; right: 0;
         }
-
-        #search-button {
-            transition: transform 0.4s ease-in-out;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Estado activo: Lupa desplaza 210px a la izquierda */
-        .search-active #search-button {
-            transform: translateX(-210px);
-        }
-
-        .search-active #search-input {
-            width: 200px;
-            opacity: 1;
-            padding: 4px 12px;
-            right: 0;
-        }
+        .search-active #search-button { transform: translateX(-160px); }
+        .search-active #search-input { width: 150px; opacity: 1; padding: 4px 10px; }
+        #search-button { transition: transform 0.4s ease-in-out; z-index: 10; }
     </style>
 </head>
-<body class="opacity-0 animate-fade-in text-[#1E1E1E] min-h-screen">
+<body class="text-white">
 
-    <header class="border-b border-gray-700 bg-[#1E1E1E]">
-        <div class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-4 flex justify-between items-center text-white">
-            <a href="/" class="flex flex-col items-start group transition-transform hover:scale-105">
-                <svg class="w-10 h-10 text-white group-hover:text-[#D4AF37] transition-colors" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M8 32V8l12 16 12-16v24M8 8h24" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="text-xl font-black tracking-tighter mt-0.5">ARQO</span>
-            </a>
-
+    <header class="border-b border-gray-800 bg-[#1E1E1E] sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col items-start">
+                <div class="w-8 h-8 border-2 border-white flex items-center justify-center font-bold text-xl">M</div>
+                <span class="text-lg font-black tracking-tighter">ARQO</span>
+            </div>
+            
             <div class="flex items-center gap-4">
                 <div id="search-wrapper">
-                    <button type="button" id="search-button" class="p-2 text-white/70 hover:text-white" aria-label="Buscar">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                    </button>
-                    <input type="text" id="search-input" placeholder="Buscar manga, autor...">
+                    <button id="search-button" class="p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></button>
+                    <input type="text" id="search-input" placeholder="Buscar manga...">
                 </div>
-
-                <button type="button" class="p-2 text-[#D4AF37] hover:scale-110 transition-transform" aria-label="Suscripción">
-                    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 22C12 22 16 18 16 14C16 10 12 2 12 2C12 2 8 10 8 14C8 18 12 22Z" fill="#D4AF37" fill-opacity="0.2" stroke="#D4AF37" stroke-width="1.5"/>
-                        <path d="M12 2V13" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
-                        <circle cx="12" cy="14" r="1.5" fill="#D4AF37"/>
-                    </svg>
-                </button>
-
-                <a href="#" class="hidden sm:block px-4 py-2 rounded border border-gray-500 bg-white text-[#1E1E1E] font-semibold text-sm hover:bg-gray-200 transition-all">Iniciar sesión</a>
-                <a href="#" class="px-4 py-2 rounded bg-[#D4AF37] text-white font-bold text-sm hover:bg-[#B8860B] transition-all shadow-lg shadow-[#D4AF37]/20">Regístrate</a>
+                <button class="bg-white text-black px-4 py-1.5 rounded text-sm font-bold">Iniciar sesión</button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-8 space-y-6">
-        <section class="rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-4 flex items-center justify-center">
-            <span class="text-[#1E1E1E] font-bold text-xs uppercase tracking-widest opacity-50">Espacio Publicitario</span>
+    <main class="p-6 space-y-6 max-w-xl mx-auto">
+        <section class="bg-[#D9D9D9] rounded-xl p-8 text-center border border-gray-400">
+            <p class="text-black/40 font-bold text-[10px] tracking-[0.3em] mb-12">ESPACIO PUBLICITARIO</p>
+            <h1 class="text-4xl font-black text-black leading-tight">Premio Arqo:<br><span class="text-[#D4AF37]">Narrativa Gráfica</span></h1>
+            <p class="text-black font-bold text-xs mt-4">$20,000 MXN AL PRIMER LUGAR + SERIALIZACIÓN</p>
         </section>
 
-        <div class="group relative overflow-hidden rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-28 md:py-40 flex flex-col items-center justify-center gap-6 min-h-[280px] md:min-h-[380px] transition-all duration-500">
-            <h1 class="text-3xl md:text-6xl font-black text-[#1E1E1E] text-center px-4 group-hover:scale-105 transition-transform duration-500">
-                Premio Arqo: <span class="group-hover:text-[#D4AF37] transition-colors">Narrativa Gráfica</span>
-            </h1>
-            <p class="text-sm font-bold text-gray-600 uppercase tracking-widest">$20,000 MXN al primer lugar + Serialización</p>
-        </div>
-
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="group rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex items-center justify-center hover:scale-105 hover:border-[#D4AF37] transition-all duration-300">
-                <span class="text-[#1E1E1E] font-bold text-center tracking-tight">Bases y requisitos</span>
-            </div>
-            <div class="group rounded-lg bg-[#D9D9D9] border border-[#B3B3B3] py-12 flex items-center justify-center hover:scale-105 hover:border-[#D4AF37] transition-all duration-300">
-                <span class="text-[#1E1E1E] font-bold text-center tracking-tight">Premios</span>
-            </div>
-            <div class="group rounded-lg bg-gradient-to-br from-[#D4AF37] to-[#B8860B] border border-[#D4AF37] py-12 flex items-center justify-center hover:scale-105 transition-all duration-300">
-                <span class="text-white font-black text-center uppercase tracking-widest drop-shadow-md">Arqo Gold</span>
-            </div>
-        </section>
+        <button class="w-full bg-[#D9D9D9] py-10 rounded-xl text-black font-bold text-xl border border-gray-400">Bases y requisitos</button>
     </main>
 
-    <footer class="border-t border-gray-700 mt-12 bg-black text-white px-6 py-10">
-        <div class="max-w-6xl mx-auto text-center space-y-6">
-            <p class="text-gray-500 text-[10px] font-black tracking-[0.4em] uppercase">Una empresa de Multimedios</p>
-            <p class="text-gray-600 text-xs font-bold uppercase tracking-widest">Derechos reservados © ARQO 2026</p>
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#1E1E1E] border-t border-gray-800 flex justify-around items-center py-3 z-50">
+        <button class="flex flex-col items-center gap-1 opacity-50">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span class="text-[10px] font-bold">Inicio</span>
+        </button>
+        <button class="flex flex-col items-center gap-1">
+            <span class="text-[#D4AF37] font-bold text-xs">Concurso</span>
+        </button>
+        <button class="flex flex-col items-center gap-1 opacity-50">
+            <svg class="w-6 h-6 text-[#D4AF37]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L8 10c0 0 0 4 4 8s4-8 4-8L12 2zM12 13a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>
+            </svg>
+            <span class="text-[10px] font-bold">Suscripción</span>
+        </button>
+    </nav>
+
+    <footer class="bg-black py-12 px-6 text-center space-y-6 mb-16">
+        <p class="text-gray-400 text-[10px] font-black tracking-[0.2em] uppercase">Una empresa de Multimedios</p>
+        <div class="flex justify-center gap-8 text-gray-400 text-sm font-bold">
+            <span>FB</span><span>IG</span><span>X</span>
         </div>
+        <p class="text-gray-600 text-[10px] font-bold tracking-widest">DERECHOS RESERVADOS © ARQO 2026</p>
     </footer>
 
     <script>
-        const searchButton = document.getElementById('search-button');
-        const searchWrapper = document.getElementById('search-wrapper');
-        const searchInput = document.getElementById('search-input');
-
-        searchButton.addEventListener('click', () => {
-            searchWrapper.classList.toggle('search-active');
-            if (searchWrapper.classList.contains('search-active')) {
-                searchInput.focus();
-            }
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!searchWrapper.contains(e.target) && searchWrapper.classList.contains('search-active')) {
-                searchWrapper.classList.remove('search-active');
-            }
-        });
+        const btn = document.getElementById('search-button');
+        const wrapper = document.getElementById('search-wrapper');
+        btn.addEventListener('click', () => wrapper.classList.toggle('search-active'));
     </script>
 </body>
 </html>
