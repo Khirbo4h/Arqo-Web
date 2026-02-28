@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6366f1">
+    <title>Premio Arqo</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #1E1E1E;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="opacity-0 animate-fade-in text-[#1E1E1E] min-h-screen">
+
+    <!-- Header compartido -->
+    <header class="border-b border-gray-700">
+        <div class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo: M + ARQO -->
+            <a href="index.html" class="flex flex-col items-start">
+                <svg class="w-10 h-10 text-white" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 32V8l12 16 12-16v24M8 8h24" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-xl font-black tracking-tighter mt-0.5">ARQO</span>
+            </a>
+            <!-- Acciones -->
+            <div class="flex items-center gap-4">
+                <button type="button" class="p-2 text-white/70 hover:text-white" aria-label="Buscar">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </button>
+                <button type="button" class="p-2 text-white/70 hover:text-white" aria-label="Editar">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                </button>
+                <a href="#" class="px-4 py-2 rounded border border-gray-500 bg-white text-[#1E1E1E] font-semibold text-sm hover:bg-gray-100">Iniciar sesión</a>
+                <a href="#" class="px-4 py-2 rounded border border-gray-500 bg-white text-[#1E1E1E] font-semibold text-sm hover:bg-gray-100">Regístrate</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-10 space-y-10">
+
+        <!-- Hero del concurso -->
+        <section class="rounded-2xl bg-[#D9D9D9] border border-[#B3B3B3] px-6 py-10 md:px-10 md:py-14 flex flex-col md:flex-row md:items-center gap-8">
+            <div class="flex-1 space-y-4">
+                <p class="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37]">Premio Arqo: Narrativa Gráfica 2026</p>
+                <p class="text-[#1E1E1E] text-sm md:text-base max-w-xl">
+                    Convocatoria abierta para creadores de narrativa gráfica. Envía tu <span class="font-semibold">one-shot de 20 a 30 páginas</span> y forma parte de la nueva era de la narrativa gráfica en México.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#registro" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] text-sm font-bold tracking-wide shadow-lg shadow-yellow-900/40 hover:shadow-xl hover:scale-[1.02] transition-all animate-pulse">
+                        REGISTRAR MI OBRA
+                    </a>
+                    <a href="assets/bases-concurso.pdf" class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-gray-500 text-sm font-semibold text-[#1E1E1E] hover:bg-[#C4C4C4] hover:border-gray-600 transition-all">
+                        DESCARGAR BASES COMPLETAS (PDF)
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1">
+                <div class="rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/60 px-6 py-6 flex flex-col gap-3">
+                    <p class="text-xs font-semibold tracking-[0.25em] uppercase text-[#D4AF37]">Primer lugar</p>
+                    <p class="text-4xl md:text-5xl font-black text-white drop-shadow-lg">
+                        $20,000 <span class="text-lg align-top">MXN</span>
+                    </p>
+                    <p class="text-sm text-[#1E1E1E]">
+                        Más la oportunidad de serializar tu obra en <span class="font-bold">Arqo.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline de fases -->
+        <section aria-labelledby="timeline-title" class="space-y-6">
+            <div class="flex items-center justify-between gap-4">
+                <h2 id="timeline-title" class="text-xl md:text-2xl font-black text-white">
+                    Fases del concurso
+                </h2>
+            </div>
+
+            <div class="relative">
+                <!-- Línea horizontal (desktop) -->
+                <div class="hidden md:block absolute inset-x-8 top-10 h-px bg-gradient-to-r from-gray-600 via-gray-700 to-gray-600 pointer-events-none"></div>
+
+                <ol class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+                    <!-- Paso 1 -->
+                    <li class="relative flex flex-col items-start md:items-center gap-3">
+                        <div class="flex items-center gap-3 md:flex-col md:gap-2">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#D9D9D9] border border-[#B3B3B3] text-[#1E1E1E]">
+                                <!-- Lápiz -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16.862 3.487l2.651 2.651a2.25 2.25 0 010 3.182l-8.4 8.4L6 18l.28-5.113 8.4-8.4a2.25 2.25 0 013.182 0z" />
+                                </svg>
+                            </div>
+                            <div class="md:text-center">
+                                <p class="text-xs font-semibold text-[#D4AF37] uppercase tracking-wide">Fase 1</p>
+                                <p class="text-sm font-semibold text-white">Creación y desarrollo</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/80 md:text-center max-w-xs">
+                            Del <span class="font-semibold">[Fecha]</span> al <span class="font-semibold">[Fecha]</span>. Crea o perfecciona tu proyecto original.
+                        </p>
+                    </li>
+
+                    <!-- Paso 2 -->
+                    <li class="relative flex flex-col items-start md:items-center gap-3">
+                        <div class="flex items-center gap-3 md:flex-col md:gap-2">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#D9D9D9] border border-[#B3B3B3] text-[#1E1E1E]">
+                                <!-- Sobre -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div class="md:text-center">
+                                <p class="text-xs font-semibold text-[#D4AF37] uppercase tracking-wide">Fase 2</p>
+                                <p class="text-sm font-semibold text-white">Envío de One-shot</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/80 md:text-center max-w-xs">
+                            Entrega tu <span class="font-semibold">one-shot de 20 a 30 páginas</span>, en el formato, estilo y sentido de lectura que prefieras. Tu imaginación es el límite.
+                        </p>
+                    </li>
+
+                    <!-- Paso 3 -->
+                    <li class="relative flex flex-col items-start md:items-center gap-3">
+                        <div class="flex items-center gap-3 md:flex-col md:gap-2">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#D9D9D9] border border-[#B3B3B3] text-[#1E1E1E]">
+                                <!-- Ojo -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                            </div>
+                            <div class="md:text-center">
+                                <p class="text-xs font-semibold text-[#D4AF37] uppercase tracking-wide">Fase 3</p>
+                                <p class="text-sm font-semibold text-white">Revisión del jurado</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/80 md:text-center max-w-xs">
+                            Un panel de especialistas revisará las obras y seleccionará a los <span class="font-semibold">10 mejores</span>.
+                        </p>
+                    </li>
+
+                    <!-- Paso 4 -->
+                    <li class="relative flex flex-col items-start md:items-center gap-3">
+                        <div class="flex items-center gap-3 md:flex-col md:gap-2">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-[#D9D9D9] border border-[#B3B3B3] text-[#1E1E1E]">
+                                <!-- Trofeo -->
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21h8m-4-4v4m5-18H7v3a5 5 0 005 5 5 5 0 005-5V3zM5 7H4a2 2 0 00-2 2v1a4 4 0 004 4M19 7h1a2 2 0 012 2v1a4 4 0 01-4 4" />
+                                </svg>
+                            </div>
+                            <div class="md:text-center">
+                                <p class="text-xs font-semibold text-[#D4AF37] uppercase tracking-wide">Fase 4</p>
+                                <p class="text-sm font-semibold text-white">Gala de premiación</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-white/80 md:text-center max-w-xs">
+                            Presentación de finalistas, anuncio de ganadores y premiación oficial del <span class="font-semibold">Premio Arqo: Narrativa Gráfica 2026</span>.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Bases del concurso -->
+        <section aria-labelledby="bases-title" class="space-y-6">
+            <h2 id="bases-title" class="text-xl md:text-2xl font-black text-gray-50">Bases principales</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Formato -->
+                <div class="rounded-xl bg-[#D9D9D9] border border-[#B3B3B3] p-6 space-y-2">
+                    <h3 class="text-sm font-semibold text-[#D4AF37] uppercase tracking-wide">Formato de obra</h3>
+                    <p class="text-sm text-[#1E1E1E]">
+                        <span class="font-semibold">One-shot de 20 a 30 páginas</span>, en calidad mínima de <span class="font-semibold">300 DPI</span>. Se aceptan propuestas en blanco y negro o color.
+                    </p>
+                </div>
+
+                <!-- Lectura -->
+                <div class="rounded-xl bg-[#D9D9D9] border border-[#B3B3B3] p-6 space-y-2">
+                    <h3 class="text-sm font-semibold text-[#D4AF37] uppercase tracking-wide">Estilo</h3>
+                    <p class="text-sm text-[#1E1E1E]">
+                        <span class="font-semibold">Libertad creativa.</span> Se aceptan todos los estilos, formas, sentidos de lectura. Tu imaginación es el límite.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Premios -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-semibold text-[#D4AF37] uppercase tracking-wide">Premios</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 1er lugar -->
+                    <div class="rounded-2xl bg-gradient-to-b from-yellow-500/20 via-yellow-500/10 to-transparent border border-yellow-400/80 p-6 text-center shadow-lg shadow-yellow-900/40 animate-pulse">
+                        <p class="text-xs font-semibold uppercase tracking-wide text-yellow-300">1er lugar</p>
+                        <p class="mt-2 text-3xl font-black text-yellow-100">$20,000 MXN</p>
+                        <p class="mt-2 text-xs text-yellow-100/80">
+                            Reconocimiento principal del Premio Arqo y prioridad para serialización.
+                        </p>
+                    </div>
+
+                    <!-- 2do lugar -->
+                    <div class="rounded-2xl bg-[#D9D9D9] border border-[#B3B3B3] p-6 text-center transition-all hover:border-[#D4AF37] hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-900/40">
+                        <p class="text-xs font-semibold uppercase tracking-wide text-[#D4AF37]">2do lugar</p>
+                        <p class="mt-2 text-2xl font-black text-[#1E1E1E]">$10,000 MXN</p>
+                        <p class="mt-2 text-xs text-[#1E1E1E]">
+                            Reconocimiento secundario del Premio Arqo. Posible serialización.
+                        </p>
+                    </div>
+
+                    <!-- 3er lugar -->
+                    <div class="rounded-2xl bg-[#D9D9D9] border border-[#B3B3B3] p-6 text-center transition-all hover:border-[#D4AF37] hover:-translate-y-1 hover:shadow-xl hover:shadow-yellow-900/40">
+                        <p class="text-xs font-semibold uppercase tracking-wide text-[#D4AF37]">3er lugar</p>
+                        <p class="mt-2 text-2xl font-black text-[#1E1E1E]">$5,000 MXN</p>
+                        <p class="mt-2 text-xs text-[#1E1E1E]">
+                            Reconocimiento del Premio Arqo. Posible serialización.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serialización -->
+            <div class="rounded-xl bg-[#D9D9D9] border border-[#D4AF37]/60 p-6 space-y-2">
+                <h3 class="text-sm font-semibold text-[#D4AF37] uppercase tracking-wide">Serialización en Arqo</h3>
+                <p class="text-sm text-[#1E1E1E]">
+                    Los ganadores tendrán la posibilidad de <span class="font-semibold">serializar su obra en la plataforma</span>,
+                    sujeto al cumplimiento de indicadores clave de audiencia (KPIs) definidos por la producción de Arqo.
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA final -->
+        <section id="registro" class="rounded-2xl bg-[#D9D9D9] border border-[#B3B3B3] px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <h2 class="text-lg md:text-xl font-black text-[#1E1E1E]">¿Listo para enviar tu historia?</h2>
+                <p class="mt-2 text-sm text-[#1E1E1E] max-w-xl">
+                    Prepara tu archivo final en alta calidad, revisa las bases completas y asegúrate de que tu one-shot refleje lo mejor de tu estilo.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-gradient-to-r from-[#D4AF37] to-[#D4AF37] text-sm font-bold tracking-wide shadow-lg shadow-yellow-900/40 hover:shadow-xl hover:scale-[1.02] transition-all">
+                    REGISTRAR MI OBRA
+                </a>
+                <a href="assets/bases-concurso.pdf" class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-gray-500 text-sm font-semibold text-[#1E1E1E] hover:bg-[#C4C4C4] hover:border-gray-600 transition-all">
+                    DESCARGAR BASES COMPLETAS (PDF)
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer simple -->
+    <footer class="border-t border-gray-700 mt-12 bg-black text-white">
+        <div class="max-w-6xl mx-auto w-full px-6 lg:px-8 py-10 text-center space-y-6">
+            <p class="text-gray-500 text-[10px] font-black tracking-[0.4em] uppercase">Una empresa de Multimedios</p>
+            <div class="flex justify-center items-center gap-8">
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition-all hover:scale-110" aria-label="TikTok">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.036 2.612.012 3.914.03.03 1.56.233 3.11.755 4.588.876-.082 1.744-.192 2.615-.314.018 1.314.045 2.628.035 3.942-.84.088-1.685.118-2.525.21-.075.674-.115 1.355-.144 2.035 0 2.223.012 4.448-.006 6.67-.36 3.528-3.016 6.55-6.517 6.991-3.23.51-6.607-1.098-8.195-4.042-1.637-2.837-1.312-6.587.804-9.116 1.438-1.897 3.6-3.045 5.973-3.13 0 1.265.003 2.53-.002 3.796-.94-.015-1.92.2-2.737.713-.883.544-1.42 1.543-1.444 2.578-.004 1.13.012 2.26-.01 3.39.123 1.47 1.393 2.737 2.87 2.896 1.17.15 2.423-.11 3.313-.895.842-.716 1.215-1.84 1.218-2.92.003-2.347.005-4.694.004-7.042-.022-2.31.115-4.63-.107-6.93z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition-all hover:scale-110" aria-label="Facebook">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition-all hover:scale-110" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition-all hover:scale-110" aria-label="YouTube">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-[#D4AF37] transition-all hover:scale-110" aria-label="X">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+
+            <nav class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-gray-500 text-xs font-semibold">
+                <a href="#" class="hover:text-white transition-colors">Contacto</a>
+                <a href="#" class="hover:text-white transition-colors">Privacidad</a>
+                <a href="#" class="hover:text-white transition-colors">Condiciones</a>
+                <a href="#" class="hover:text-white transition-colors">Anúnciate</a>
+            </nav>
+            <p class="text-gray-600 text-xs font-bold uppercase tracking-widest">Derechos reservados © ARQO 2026</p>
+        </div>
+    </footer>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then((reg) => console.log('ARQO: Service Worker registrado', reg.scope))
+            .catch((err) => console.log('ARQO: Error al registrar SW', err));
+        });
+      }
+    </script>
+</body>
+</html>
